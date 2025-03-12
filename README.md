@@ -155,7 +155,36 @@ SNS sends real-time notifications, ensuring that the team is instantly alerted a
 
 
 ![image](https://github.com/user-attachments/assets/7c4b874b-483e-424e-8c3f-62ba3afe2a06)
+Once the data is cleaned, transformed, and loaded into S3, it will then be transferred to the Redshift data warehouse for further analysis. This ensures that the data is ready for efficient querying and reporting, enabling deeper insights and informed decision-making.
+![image](https://github.com/user-attachments/assets/478a6bd1-3256-4012-92c2-dc06dbd91d87)
 
+
+Testing Connection
+![image](https://github.com/user-attachments/assets/6e2702e3-bdd4-42a6-a1aa-4057a31beff3)
+
+
+Now create Visual ETL pipeline to load data from s3 to Redshift
+![image](https://github.com/user-attachments/assets/ea5d5113-509f-4aa8-9b17-39ac26a264b0)
+
+![image](https://github.com/user-attachments/assets/6182caa4-b766-472e-af5f-f11dd45e2dea)
+
+
+![image](https://github.com/user-attachments/assets/df0e511f-787c-49cd-a67a-ab3969e16c14)
+
+Before Loading into Redshift
+![image](https://github.com/user-attachments/assets/9640f09a-8bd1-4816-b14f-ed7d07813720)
+
+After succesful load
+
+![image](https://github.com/user-attachments/assets/a17f7d03-6b03-4c3c-856c-b40f0b13a399)
+
+# After a successful data load into Redshift, I connected the dataset to Power BI for visual reporting
+
+![image](https://github.com/user-attachments/assets/e3931523-5ba9-489f-bd1f-e48e22a0d1ff)
+
+# The data is then visualized through a custom Power BI dashboard, enabling real-time insights and interactive reporting.
+
+![image](https://github.com/user-attachments/assets/4572e384-4196-47a5-b57f-22f8aec7cfa3)
 
 
 
