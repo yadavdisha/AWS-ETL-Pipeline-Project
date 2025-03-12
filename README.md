@@ -6,6 +6,7 @@
 Modern hospitals generate huge amounts of structured and unstructured data from various sources, including electronic health records (EHRs), patient admissions, billing systems, and feedback surveys. Efficient processing and analysis of this data are crucial for optimizing hospital operations, reducing patient wait times, and improving healthcare services.
 
 However, traditional data processing methods face multiple challenges:
+
 ✅ Heterogeneous data sources (on-prem databases, JSON, CSV, etc.).
 
 ✅ Data inconsistency and missing values lead to inaccurate reporting.
@@ -24,6 +25,7 @@ This project builds a fully automated cloud-based ETL pipeline using AWS service
 I developed a Python script that connects to an on-prem MySQL database, extracts structured data (such as patient records), and uploads it to an AWS S3 bucket using the Boto3 library.
 
 Key Steps:
+
 ✔ Established a secure connection to the on-prem database using PyMySQL.
 
 ✔ Extracted patient and hospital data, converted it into a Pandas DataFrame.
