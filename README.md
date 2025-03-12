@@ -1,1 +1,173 @@
-# AWS-ETL-Pipeline-Project
+# 🏥 Hospital Management Data Pipeline & Dashboard
+
+# Hospital Management System
+## Problem Statement 📌
+
+Modern hospitals generate huge amounts of structured and unstructured data from various sources, including electronic health records (EHRs), patient admissions, billing systems, and feedback surveys. Efficient processing and analysis of this data are crucial for optimizing hospital operations, reducing patient wait times, and improving healthcare services.
+
+However, traditional data processing methods face multiple challenges:
+✅ Heterogeneous data sources (on-prem databases, JSON, CSV, etc.).
+
+✅ Data inconsistency and missing values lead to inaccurate reporting.
+
+✅ Manual reporting delays decision-making.
+
+✅ Lack of real-time monitoring affects hospital efficiency.
+
+## Solution
+
+This project builds a fully automated cloud-based ETL pipeline using AWS services to extract, transform, and load (ETL) healthcare data into a structured, analytics-ready format. A Power BI dashboard is integrated for data visualization and insights, enabling hospital management to monitor key performance indicators (KPIs) in real-time.
+
+## 3️⃣ Data Extraction (Sources & Methods) 
+
+📌 On-Premises Database Extraction (MySQL to AWS S3)
+I developed a Python script that connects to an on-prem MySQL database, extracts structured data (such as patient records), and uploads it to an AWS S3 bucket using the Boto3 library.
+
+Key Steps:
+✔ Established a secure connection to the on-prem database using PyMySQL.
+
+✔ Extracted patient and hospital data, converted it into a Pandas DataFrame.
+
+✔ Saved the data as a CSV file and uploaded it to S3.
+
+✔ Automated the extraction process for periodic data refresh.
+
+Technologies Used:
+Python (PyMySQL, Pandas, Boto3)
+
+AWS S3 for cloud storage
+
+📌 CSV File Ingestion (AWS Lambda & AWS Glue)
+
+For handling CSV files, I implemented a serverless AWS Lambda function that triggers whenever a new CSV file is uploaded to S3. The function:
+
+✔ Reads the CSV file metadata.
+
+✔ Validates and transforms the data.
+
+✔ Stores it in AWS Glue for ETL processing.
+
+✔ Makes the data queryable via AWS Athena.
+
+📌 JSON File Processing (AWS Lambda + S3 + SNS Alerts)
+For handling semi-structured JSON data, I designed an automated data pipeline using:
+
+✔ AWS Lambda – Cleans and transforms JSON files.
+
+✔ AWS S3 – Stores raw and processed JSON files.
+
+✔ AWS CloudWatch – Monitors execution and logs errors.
+
+✔ AWS SNS (Simple Notification Service) – Sends alerts on success/failure
+
+Challenges addressed:
+✅ Data freshness: Automates periodic data syncs.
+
+✅ Security: Uses IAM roles & VPN for secure data transfer.
+
+## 🏥 System Architecture 🖥️
+The system uses AWS services like Lambda, Glue, S3, Athena, Redshift, and CodePipeline to automate the ETL process for healthcare data. CloudFormation helps set up and manage the infrastructure, while CloudWatch monitors the system's performance. SNS is used for sending alerts, and Power BI provides real-time dashboards for hospital management to track key performance indicators (KPIs).
+
+![Blank diagram (1)](https://github.com/user-attachments/assets/5bd54ffb-0327-4e9b-a476-0d9d2a33cd0c)
+
+## 🛠️ Implementation
+Steps:
+
+1️⃣ Moving Data from On-Prem to AWS S3 (Using AWS CLI)
+To begin the ETL process, I first uploaded raw hospital data (CSV & JSON files) from an on-premises system to an AWS S3 bucket using the AWS CLI.
+
+Step 1: Verify AWS CLI Configuration
+
+Before transferring data, I ensured that the AWS CLI was configured correctly with the necessary credentials.
+
+![image](https://github.com/user-attachments/assets/22717a0f-2eb8-4ef5-ae9b-c5d45e12264a)
+
+
+Copy dato to S3 bucket using aws CLI
+
+![image](https://github.com/user-attachments/assets/a9db2d51-a148-4aea-b8c6-fa1ebd3ffe0e)
+
+![image](https://github.com/user-attachments/assets/cf0c08e1-feab-4be7-83ef-007c66024397)
+
+![image](https://github.com/user-attachments/assets/3a4bfc32-afce-4d77-9c16-411508c25ce4)
+
+Successfully Upload all files from different data source to S3 bucket
+
+![image](https://github.com/user-attachments/assets/d9e47d31-e610-49a8-ac3b-e0a445d79b24)
+
+
+## Data Cataloging with AWS Glue Crawler
+After uploading raw hospital data (CSV, JSON, etc.) to S3, I used AWS Glue Crawler to:
+
+Detect Schema:
+
+Automatically scans the data and infers its structure (e.g., column names, data types).
+
+Create Data Catalog:
+
+Generates tables in the Glue Data Catalog, making the data queryable with tools like AWS Athena.
+
+![image](https://github.com/user-attachments/assets/3c580fb2-1186-47af-84e6-d6913ef50dcd)
+
+
+![image](https://github.com/user-attachments/assets/a128088d-5a50-4cc7-9b89-066ddb4c18be)
+
+
+![image](https://github.com/user-attachments/assets/4f8bad0f-6759-4bce-8ab9-d3b6239618cf)
+
+The AWS Glue Crawler successfully uploaded the schema structure to the database, and I found that one of the files was in JSON format. To make the data easier to work with, I created a Lambda function that converts the JSON into Parquet format. Parquet is a more efficient format because it saves storage space and speeds up queries, especially for large datasets. This helps make the data ready for further analysis.
+
+## Data Transformation:
+
+An AWS Lambda function is triggered automatically when new files are uploaded to S3.
+The Lambda function processes the data (cleans, validates, and transforms it) and converts it into Parquet format.
+
+The transformed data is stored back in S3 for further analysis.
+
+![image](https://github.com/user-attachments/assets/a845ede0-7ac6-48f3-bdea-173f195064e2)
+
+![image](https://github.com/user-attachments/assets/d20d83a1-63e9-46df-8897-f8b3ef5a5da1)
+
+
+![image](https://github.com/user-attachments/assets/d704818f-04ee-42e7-aa4a-2425ba23ddc0)
+
+
+
+
+![image](https://github.com/user-attachments/assets/af2c91a9-3df8-4944-8d14-b212c426ff7d)
+
+
+
+
+
+![image](https://github.com/user-attachments/assets/a8b1208c-8e1a-4a09-8fb4-cd3f094a84c0)
+
+
+
+Cleaned Data in proper format
+
+![image](https://github.com/user-attachments/assets/13d97e1c-8f26-4052-8040-f77379a38e04)
+
+
+To ensure smooth monitoring and timely alerts, I implemented AWS SNS (Simple Notification Service)
+SNS sends real-time notifications, ensuring that the team is instantly alerted about successful data processing
+![image](https://github.com/user-attachments/assets/9e17f352-ee87-4173-b484-ff269f263dac)
+
+
+![image](https://github.com/user-attachments/assets/7c4b874b-483e-424e-8c3f-62ba3afe2a06)
+
+
+
+
+
+
+
+
+n.
+
+
+
+
+
+
+
