@@ -192,6 +192,11 @@ After succesful load
 
 
 ## Setting Up AWS CodePipeline for CI/CD Integration
+
+
+
+![image](https://github.com/user-attachments/assets/72f098b6-da29-40c7-b816-4a6e25b0230f)
+
 To set up CI/CD for my project using AWS CodePipeline, I followed a step-by-step process to ensure a smooth pipeline creation and integration with GitHub, CodeBuild, and deployment stages. Below are the steps I took to set up the pipeline:
 
 Step 1: IAM Role Creation for AWS CodePipeline
