@@ -191,10 +191,54 @@ After succesful load
 
 
 
+## Setting Up AWS CodePipeline for CI/CD Integration
+To set up CI/CD for my project using AWS CodePipeline, I followed a step-by-step process to ensure a smooth pipeline creation and integration with GitHub, CodeBuild, and deployment stages. Below are the steps I took to set up the pipeline:
+
+Step 1: IAM Role Creation for AWS CodePipeline
+
+![image](https://github.com/user-attachments/assets/0e3a15b0-5d3a-4f48-aefa-aa07262db92c)
+
+![image](https://github.com/user-attachments/assets/ec6488e5-caa0-4696-9409-0e3edbe86715)
 
 
 
-n.
+Input Bucket: Contains files that the Glue script will read for processing.
+
+Script Bucket: Stores AWS Glue ETL scripts for data extraction, transformation, and loading.
+
+Output Bucket: Holds the processed data after the Glue ETL script runs.
+
+Template Bucket: Stores paths and configuration files, with AWS automatically assigning temporary paths.
+![image](https://github.com/user-attachments/assets/c815afb6-c13c-4012-877b-d1e1649bc386)
+
+
+Creating  Codepipeline
+
+
+![image](https://github.com/user-attachments/assets/c574e358-2f6b-486c-ab86-7e30c4738627)
+
+
+Connecting it to github
+
+![image](https://github.com/user-attachments/assets/23abf6cc-d011-4cef-bdca-a32bcf1ae4f7)
+
+![image](https://github.com/user-attachments/assets/d286f1e9-19cb-42a5-b0cf-e89b94dc8de9)
+
+
+![image](https://github.com/user-attachments/assets/a4953214-f994-43dd-9a82-310c44ea1a76)
+
+once created the pipleine will run the pipeline
+
+
+![image](https://github.com/user-attachments/assets/77650478-2a52-400b-98ed-b5fc2ef7ceb5)
+
+
+![image](https://github.com/user-attachments/assets/5a4d8936-7bac-451b-8afe-f591fe13ff78)
+
+
+
+
+
 
 
 
