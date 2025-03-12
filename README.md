@@ -1,4 +1,4 @@
-# 🏥 Hospital Management Data Pipeline & Dashboard
+# 🏥 Seamless Healthcare Data Pipeline & Dashboard with AWS CI/CD
 
 # Hospital Management System
 ## Problem Statement 📌
