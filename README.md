@@ -123,6 +123,8 @@ The AWS Glue Crawler successfully uploaded the schema structure to the database,
 
 An AWS Lambda function is triggered automatically when new files are uploaded to S3.
 The Lambda function processes the data (cleans, validates, and transforms it) and converts it into Parquet format.
+![image](https://github.com/user-attachments/assets/25e3d6a7-91aa-4d86-8590-f7fe4f1f7c3b)
+
 
 The transformed data is stored back in S3 for further analysis.
 
